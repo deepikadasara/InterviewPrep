@@ -52,12 +52,17 @@ df.drop(columns=['column_name'], inplace=True)
 grouped_df = df.groupby('column_name').mean()
 # Group by multiple columns
 grouped_df = df.groupby(['column1', 'column2']).sum()
+# Group by a column and sum the values
+aggregated_df = df.groupby('column1')['values'].sum().reset_index()
 
 7. Merging Data
 # Merge two dataframes on a common column
 merged_df = pd.merge(df1, df2, on='common_column')
 # Merge with different join types
 left_joined_df = pd.merge(df1, df2, how='left', on='common_column')
+
+# Union two DataFrames (concatenate)
+union_df = pd.concat([df1, df2], ignore_index=True)
 
 8. Reshaping Data
 # Pivoting data
