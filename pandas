@@ -77,3 +77,13 @@ df.to_csv('output.csv', index=False)
 # Save dataframe to an Excel file
 df.to_excel('output.xlsx', index=False)
 
+11. Normalization (between 0 and 1)
+# Apply Min-Max Scaling
+scaler = MinMaxScaler()
+df[['A', 'B']] = scaler.fit_transform(df[['A', 'B']])
+
+12. Standardization (mean of 0 and a standard deviation of 1)
+# Standardize features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
