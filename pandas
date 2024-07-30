@@ -1,0 +1,79 @@
+Pandas Cheat Sheet
+
+1. Loading Data
+import pandas as pd
+
+# Load a CSV file
+df = pd.read_csv('data.csv')
+# Load an Excel file
+df = pd.read_excel('data.xlsx')
+
+2. Viewing Data
+
+# View the first few rows of the dataframe
+print(df.head())
+# View the last few rows of the dataframe
+print(df.tail())
+# Get a summary of the dataframe
+print(df.info())
+# Get statistical summary of the dataframe
+print(df.describe())
+
+3. Selecting Data
+# Select a single column
+column = df['column_name']
+# Select multiple columns
+subset = df[['column1', 'column2']]
+# Select rows by index
+row = df.iloc[0]
+# Select rows by condition
+filtered_df = df[df['column_name'] > 10]
+
+4. Data Cleaning
+
+# Handling missing values
+df.dropna()  # Drop rows with missing values
+df.fillna(0)  # Fill missing values with 0
+# Removing duplicates
+df.drop_duplicates()
+# Renaming columns
+df.rename(columns={'old_name': 'new_name'}, inplace=True)
+
+5. Adding/Removing Columns
+
+# Add a new column
+df['new_column'] = df['column1'] + df['column2']
+# Remove a column
+df.drop(columns=['column_name'], inplace=True)
+
+6. Grouping Data
+
+# Group by a column and get the mean of each group
+grouped_df = df.groupby('column_name').mean()
+# Group by multiple columns
+grouped_df = df.groupby(['column1', 'column2']).sum()
+
+7. Merging Data
+# Merge two dataframes on a common column
+merged_df = pd.merge(df1, df2, on='common_column')
+# Merge with different join types
+left_joined_df = pd.merge(df1, df2, how='left', on='common_column')
+
+8. Reshaping Data
+# Pivoting data
+pivoted_df = df.pivot(index='row_index', columns='column_index', values='values')
+# Melting data
+melted_df = pd.melt(df, id_vars=['id_vars'], value_vars=['value_vars'])
+
+9. Sorting Data
+# Sort by a single column
+sorted_df = df.sort_values(by='column_name')
+# Sort by multiple columns
+sorted_df = df.sort_values(by=['column1', 'column2'], ascending=[True, False])
+
+10. Saving Data
+# Save dataframe to a CSV file
+df.to_csv('output.csv', index=False)
+# Save dataframe to an Excel file
+df.to_excel('output.xlsx', index=False)
+
