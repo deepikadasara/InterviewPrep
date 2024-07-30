@@ -1,1 +1,39 @@
+1) When to Use Normalization?
+Normalization is a technique used to scale numerical data to a common range, typically between 0 and 1. 
+The main purpose of normalization is to bring all the features to the same scale so that no single feature dominates the others due to its 
+larger range of values.
+
+Normalization is important because many machine learning algorithms are sensitive to the scale of input features. 
+When features have different scales, the algorithm might give more importance to features with larger values, which can lead to biased results.
+
+When to Use:
+Algorithms Sensitive to Feature Scales: Algorithms like K-Nearest Neighbors (KNN) and neural networks that rely on distance measurements and gradients benefit from normalization.
+Data with No Outliers: Normalization works best when there are no significant outliers because outliers can skew the scaling.
+
+Example:
+Image Processing: Pixel values are usually normalized between 0 and 1 for neural network inputs.
+Clustering Algorithms: Normalizing data can improve the performance of clustering algorithms like K-Means.
+
+When Not to Use:
+Presence of Outliers: Normalization can be heavily affected by outliers, leading to poor performance.
+Non-Linear Models: Tree-based models (like decision trees, random forests) are generally not affected by the feature scales, making normalization less critical.
+
+2) When to Use Standardization
+
+What is Standardization?
+Standardization, also known as Z-score normalization, is a technique used to rescale features so that they have the properties of a standard normal distribution with a mean of 0 and a standard deviation of 1.
+
+Why Use Standardization?
+Standardization is important because many machine learning algorithms assume that the data follows a Gaussian distribution (normal distribution). This includes algorithms like linear regression, logistic regression, and support vector machines. When the features are standardized, the algorithm can perform better and converge more quickly.
+
+When to Use:
+Algorithms Assuming Gaussian Distribution: Algorithms like linear regression, logistic regression, and SVM assume the data is normally distributed.
+Presence of Outliers: Standardization is less affected by outliers compared to normalization.
+Example:
+Linear Regression: Standardizing features can help achieve better convergence and interpretation.
+Principal Component Analysis (PCA): PCA requires data to be standardized for meaningful principal components.
+When Not to Use:
+Sparse Data: Standardization might not be ideal for sparse data (lots of zeros), as it can distort the data.
+Tree-based Algorithms: As with normalization, tree-based algorithms do not require standardized data.
+
 
